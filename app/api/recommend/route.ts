@@ -1,4 +1,4 @@
-import { NextResponse, after } from 'next/server';
+import { NextResponse } from 'next/server';
 import { scoreAnswers } from '@/lib/scoring';
 import { ruleBasedRecommendation, buildAIPrompt, type Recommendation } from '@/lib/recommendation';
 import { scoreAnswers12, recommend12, TRACK_INFO, type Stream12, type Recommendation12 } from '@/lib/class12';
@@ -58,7 +58,7 @@ export async function POST(req: Request) {
         }
       }
 
-      after(() => incrementCount().catch(() => {}));
+      await incrementCount();
       return NextResponse.json({ score: score12, recommendation: rec12, level: 12, priorStream });
     }
 
@@ -104,7 +104,7 @@ export async function POST(req: Request) {
       }
     }
 
-    after(() => incrementCount().catch(() => {}));
+    await incrementCount();
     return NextResponse.json({ score, recommendation: rec, level: 10 });
   } catch (e) {
     console.error(e);

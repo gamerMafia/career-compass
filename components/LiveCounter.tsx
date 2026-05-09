@@ -5,14 +5,22 @@ interface Props {
   initial: number;
   /** Polling interval in ms. Default 8s. */
   intervalMs?: number;
+  /** Shown if `initial` is invalid (NaN / 0 / negative). */
+  fallback?: string;
 }
 
 const formatter = new Intl.NumberFormat('en-IN');
 
-export default function LiveCounter({ initial, intervalMs = 8000 }: Props) {
-  const [count, setCount] = useState(initial);
+const safe = (n: unknown): number => {
+  const v = typeof n === 'number' && Number.isFinite(n) && n > 0 ? n : 8000;
+  return v;
+};
+
+export default function LiveCounter({ initial, intervalMs = 8000, fallback = '8,000+' }: Props) {
+  const safeInitial = safe(initial);
+  const [count, setCount] = useState<number>(safeInitial);
   const [bumped, setBumped] = useState(false);
-  const lastSeen = useRef(initial);
+  const lastSeen = useRef<number>(safeInitial);
 
   useEffect(() => {
     let alive = true;
@@ -22,10 +30,11 @@ export default function LiveCounter({ initial, intervalMs = 8000 }: Props) {
         const res = await fetch('/api/count', { cache: 'no-store' });
         if (!res.ok) return;
         const data = await res.json();
-        if (!alive || typeof data.count !== 'number') return;
-        if (data.count !== lastSeen.current) {
-          lastSeen.current = data.count;
-          setCount(data.count);
+        if (!alive) return;
+        const next = safe(data?.count);
+        if (next !== lastSeen.current) {
+          lastSeen.current = next;
+          setCount(next);
           setBumped(true);
           setTimeout(() => alive && setBumped(false), 700);
         }
@@ -34,7 +43,6 @@ export default function LiveCounter({ initial, intervalMs = 8000 }: Props) {
       }
     };
 
-    // Refresh on mount, on interval, on tab focus, and on tab visibility regain.
     tick();
     const id = setInterval(tick, intervalMs);
     const onFocus = () => tick();
@@ -50,6 +58,9 @@ export default function LiveCounter({ initial, intervalMs = 8000 }: Props) {
     };
   }, [intervalMs]);
 
+  // If for some reason the count is invalid, render a static fallback rather than nothing.
+  const display = Number.isFinite(count) && count > 0 ? formatter.format(count) : fallback;
+
   return (
     <span
       className={
@@ -57,7 +68,7 @@ export default function LiveCounter({ initial, intervalMs = 8000 }: Props) {
         (bumped ? 'scale-110' : 'scale-100')
       }
     >
-      {formatter.format(count)}
+      {display}
     </span>
   );
 }
