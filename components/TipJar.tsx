@@ -68,7 +68,7 @@ function qrUrl(data: string) {
   return `https://api.qrserver.com/v1/create-qr-code/?size=240x240&margin=10&data=${encodeURIComponent(data)}`;
 }
 
-export default function TipJar() {
+export default function TipJar({ persistent = false }: { persistent?: boolean }) {
   const t = useTranslations('tip');
   const [dismissed, setDismissed] = useState(false);
   const [custom, setCustom] = useState('');
@@ -80,7 +80,9 @@ export default function TipJar() {
   const upiName = process.env.NEXT_PUBLIC_TIP_NAME ?? 'Career Compass';
   const note = 'Tip for Career Compass';
 
-  if (dismissed) return null;
+  const closeOrReset = () => persistent ? (setAmount(null), setThanks(false), setCustom('')) : setDismissed(true);
+
+  if (dismissed && !persistent) return null;
 
   const pick = (n: number) => {
     if (n <= 0) return;
@@ -111,8 +113,8 @@ export default function TipJar() {
         </div>
         <h3 className="font-bold text-xl text-emerald-900">{t('thanks')}</h3>
         <p className="text-emerald-700 text-sm mt-1">{t('thanksSub')}</p>
-        <button onClick={() => setDismissed(true)} className="mt-4 text-xs text-emerald-700 underline">
-          Close
+        <button onClick={closeOrReset} className="mt-4 text-xs text-emerald-700 underline">
+          {persistent ? 'Send another tip' : 'Close'}
         </button>
       </div>
     );
@@ -130,7 +132,7 @@ export default function TipJar() {
           <ArrowLeft size={14} /> Back
         </button>
         <button
-          onClick={() => setDismissed(true)}
+          onClick={closeOrReset}
           className="absolute top-3 right-3 w-8 h-8 rounded-full hover:bg-slate-100 flex items-center justify-center text-slate-400"
         >
           <X size={16} />
@@ -192,13 +194,15 @@ export default function TipJar() {
   // ---------- Initial preset selector ----------
   return (
     <div className="my-10 max-w-2xl mx-auto rounded-3xl border border-slate-200 bg-white p-6 md:p-8 relative shadow-sm print:hidden">
-      <button
-        onClick={() => setDismissed(true)}
-        className="absolute top-3 right-3 w-8 h-8 rounded-full hover:bg-slate-100 flex items-center justify-center text-slate-400 hover:text-slate-700"
-        aria-label="Dismiss"
-      >
-        <X size={16} />
-      </button>
+      {!persistent && (
+        <button
+          onClick={() => setDismissed(true)}
+          className="absolute top-3 right-3 w-8 h-8 rounded-full hover:bg-slate-100 flex items-center justify-center text-slate-400 hover:text-slate-700"
+          aria-label="Dismiss"
+        >
+          <X size={16} />
+        </button>
+      )}
 
       <div className="flex items-center gap-3 mb-3">
         <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-pink-500 to-rose-500 text-white flex items-center justify-center">
@@ -249,12 +253,14 @@ export default function TipJar() {
         </button>
       </div>
 
-      <button
-        onClick={() => setDismissed(true)}
-        className="text-xs text-slate-500 hover:text-slate-800 underline"
-      >
-        {t('skip')}
-      </button>
+      {!persistent && (
+        <button
+          onClick={() => setDismissed(true)}
+          className="text-xs text-slate-500 hover:text-slate-800 underline"
+        >
+          {t('skip')}
+        </button>
+      )}
 
       {!upiId && (
         <p className="mt-3 text-[11px] text-amber-700 bg-amber-50 border border-amber-200 rounded-lg px-2 py-1.5 inline-block">

@@ -6,7 +6,15 @@
     "parent": "Parents Ke Liye",
     "about": "Hamare Baare Mein",
     "contact": "Contact",
+    "support": "Support Us",
     "start": "Free Quiz Shuru Karo"
+  },
+  "support": {
+    "title": "Ek chai pila do ☕",
+    "subtitle": "Career Compass har student ke liye 100% free hai. Aapki tip ise aisa hi rakhti hai — aur AI, hosting aur updates ka kharcha chalati hai.",
+    "reason1": "Har student ke liye platform free rakho",
+    "reason2": "Aur govt + rural schools tak pahuncho",
+    "reason3": "Aur bhasha aur AI features add karo"
   },
   "hero": {
     "badge": "10th ke baad AI-powered career guidance",
@@ -15,6 +23,7 @@
     "cta": "Free Quiz Shuru Karo",
     "secondary": "Careers Dekho",
     "stat1": "8,000+ students ko guide kiya",
+    "statReports": "reports ban gayi",
     "stat2": "120+ career options",
     "stat3": "4 bhasha"
   },

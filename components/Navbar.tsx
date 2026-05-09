@@ -5,7 +5,7 @@ import { usePathname, useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { locales, type Locale } from '@/i18n';
 import { cn } from '@/lib/utils';
-import { Compass, Menu, X, Globe } from 'lucide-react';
+import { Compass, Menu, X, Globe, Coffee } from 'lucide-react';
 
 const langLabels: Record<Locale, string> = {
   en: 'English',
@@ -35,6 +35,7 @@ export default function Navbar({ locale }: { locale: Locale }) {
     { href: `/${locale}/parent`, label: t('parent') },
     { href: `/${locale}/about`, label: t('about') },
     { href: `/${locale}/contact`, label: t('contact') },
+    { href: `/${locale}/support`, label: t('support'), icon: Coffee },
   ];
 
   return (
@@ -48,18 +49,23 @@ export default function Navbar({ locale }: { locale: Locale }) {
         </Link>
 
         <nav className="hidden md:flex items-center gap-6">
-          {links.map((l) => (
-            <Link
-              key={l.href}
-              href={l.href}
-              className={cn(
-                'text-sm font-medium hover:text-brand-600 transition',
-                pathname === l.href && 'text-brand-600'
-              )}
-            >
-              {l.label}
-            </Link>
-          ))}
+          {links.map((l) => {
+            const Icon = (l as { icon?: typeof Coffee }).icon;
+            return (
+              <Link
+                key={l.href}
+                href={l.href}
+                className={cn(
+                  'text-sm font-medium hover:text-brand-600 transition inline-flex items-center gap-1',
+                  pathname === l.href && 'text-brand-600',
+                  Icon && 'text-pink-600 hover:text-pink-700'
+                )}
+              >
+                {Icon && <Icon size={14} />}
+                {l.label}
+              </Link>
+            );
+          })}
         </nav>
 
         <div className="flex items-center gap-2">
@@ -103,16 +109,23 @@ export default function Navbar({ locale }: { locale: Locale }) {
       </div>
       {open && (
         <div className="md:hidden border-t border-slate-200 bg-white">
-          {links.map((l) => (
-            <Link
-              key={l.href}
-              href={l.href}
-              onClick={() => setOpen(false)}
-              className="block px-4 py-3 text-sm border-b border-slate-100"
-            >
-              {l.label}
-            </Link>
-          ))}
+          {links.map((l) => {
+            const Icon = (l as { icon?: typeof Coffee }).icon;
+            return (
+              <Link
+                key={l.href}
+                href={l.href}
+                onClick={() => setOpen(false)}
+                className={cn(
+                  'flex items-center gap-2 px-4 py-3 text-sm border-b border-slate-100',
+                  Icon && 'text-pink-600 font-semibold'
+                )}
+              >
+                {Icon && <Icon size={16} />}
+                {l.label}
+              </Link>
+            );
+          })}
           <Link
             href={`/${locale}/quiz`}
             onClick={() => setOpen(false)}

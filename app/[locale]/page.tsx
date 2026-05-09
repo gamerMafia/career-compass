@@ -2,11 +2,16 @@ import { setRequestLocale, getTranslations } from 'next-intl/server';
 import Link from 'next/link';
 import { ArrowRight, Sparkles, Brain, FileText, HeartHandshake, Globe, Gift, Beaker, Briefcase, Palette, Wrench, Cog, ChevronDown } from 'lucide-react';
 import type { Locale } from '@/i18n';
+import { getCount } from '@/lib/counter';
+
+export const revalidate = 60; // refresh the live counter every minute
 
 export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations();
+  const reportsGenerated = await getCount();
+  const formattedCount = new Intl.NumberFormat('en-IN').format(reportsGenerated);
 
   const featureIcons = [Brain, Sparkles, FileText, HeartHandshake, Globe, Gift];
   const featureKeys = ['ai', 'quiz', 'report', 'parent', 'lang', 'free'] as const;
@@ -58,11 +63,26 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             </Link>
           </div>
           <div className="grid grid-cols-3 max-w-2xl mx-auto mt-12 gap-4 text-center">
-            {(['stat1', 'stat2', 'stat3'] as const).map((k) => (
-              <div key={k} className="p-4 rounded-2xl glass">
-                <div className="text-sm font-semibold text-slate-700">{t(`hero.${k}`)}</div>
+            <div className="p-4 rounded-2xl glass relative overflow-hidden">
+              <div className="text-2xl md:text-3xl font-extrabold gradient-text leading-tight">
+                {formattedCount}
               </div>
-            ))}
+              <div className="text-[11px] md:text-xs font-medium text-slate-600 mt-0.5 inline-flex items-center gap-1 justify-center">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+                </span>
+                {t('hero.statReports')}
+              </div>
+            </div>
+            <div className="p-4 rounded-2xl glass">
+              <div className="text-2xl md:text-3xl font-extrabold gradient-text leading-tight">120+</div>
+              <div className="text-[11px] md:text-xs font-medium text-slate-600 mt-0.5">{t('hero.stat2')}</div>
+            </div>
+            <div className="p-4 rounded-2xl glass">
+              <div className="text-2xl md:text-3xl font-extrabold gradient-text leading-tight">4</div>
+              <div className="text-[11px] md:text-xs font-medium text-slate-600 mt-0.5">{t('hero.stat3')}</div>
+            </div>
           </div>
         </div>
       </section>

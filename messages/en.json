@@ -6,7 +6,15 @@
     "parent": "For Parents",
     "about": "About",
     "contact": "Contact",
+    "support": "Support Us",
     "start": "Start Free Quiz"
+  },
+  "support": {
+    "title": "Buy us a chai ☕",
+    "subtitle": "Career Compass is 100% free for every student in Gujarat. Your tip keeps it that way — and pays for the AI bills, hosting, and updates.",
+    "reason1": "Keep the platform 100% free for students",
+    "reason2": "Reach more government & rural schools",
+    "reason3": "Add more languages and AI features"
   },
   "hero": {
     "badge": "AI-Powered Career Guidance for Class 10 Students",
@@ -15,6 +23,7 @@
     "cta": "Take the Free Quiz",
     "secondary": "Explore Careers",
     "stat1": "8,000+ students guided",
+    "statReports": "reports generated",
     "stat2": "120+ career paths",
     "stat3": "4 languages"
   },
