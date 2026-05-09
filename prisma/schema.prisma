@@ -1,0 +1,94 @@
+// Prisma schema — wire up to a real PostgreSQL when ready.
+// Run: npx prisma migrate dev
+
+generator client { provider = "prisma-client-js" }
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  clerkId   String   @unique
+  email     String   @unique
+  role      Role     @default(STUDENT)
+  createdAt DateTime @default(now())
+  student   Student?
+  school    School?  @relation(fields: [schoolId], references: [id])
+  schoolId  String?
+}
+
+enum Role { STUDENT PARENT COUNSELOR ADMIN }
+
+model Student {
+  id           String        @id @default(cuid())
+  user         User          @relation(fields: [userId], references: [id])
+  userId       String        @unique
+  name         String
+  classLevel   Int           @default(10)
+  language     String        @default("en")
+  results      QuizResult[]
+  reports      Report[]
+}
+
+model QuizResult {
+  id              String   @id @default(cuid())
+  student         Student  @relation(fields: [studentId], references: [id])
+  studentId       String
+  answers         Json
+  streamScores    Json
+  aptitudeScores  Json
+  bestStream      String
+  confidence      Int
+  language        String
+  createdAt       DateTime @default(now())
+}
+
+model AptitudeScore {
+  id        String @id @default(cuid())
+  studentId String
+  category  String
+  score     Float
+}
+
+model School {
+  id        String   @id @default(cuid())
+  name      String
+  city      String?
+  plan      Plan     @default(FREE)
+  brand     Json?
+  users     User[]
+  createdAt DateTime @default(now())
+}
+
+enum Plan { FREE PREMIUM COUNSELOR_PRO }
+
+model Career {
+  id       String  @id @default(cuid())
+  name     String
+  stream   String
+  modern   Boolean @default(false)
+  salary   String
+  demand   String
+  skills   String[]
+  desc     Json
+}
+
+model Report {
+  id          String   @id @default(cuid())
+  student     Student  @relation(fields: [studentId], references: [id])
+  studentId   String
+  language    String
+  payload     Json
+  pdfUrl      String?
+  createdAt   DateTime @default(now())
+}
+
+model Translation {
+  id     String @id @default(cuid())
+  key    String
+  locale String
+  value  String
+  @@unique([key, locale])
+}

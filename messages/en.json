@@ -1,0 +1,139 @@
+{
+  "nav": {
+    "home": "Home",
+    "quiz": "Take Quiz",
+    "careers": "Careers",
+    "parent": "For Parents",
+    "about": "About",
+    "contact": "Contact",
+    "start": "Start Free Quiz"
+  },
+  "hero": {
+    "badge": "AI-Powered Career Guidance for Class 10 Students",
+    "title": "Find your right path after 10th",
+    "subtitle": "A friendly, AI-powered guide for Gujarat students choosing between Science, Commerce, Arts, Diploma & ITI. Built with parents in mind.",
+    "cta": "Take the Free Quiz",
+    "secondary": "Explore Careers",
+    "stat1": "8,000+ students guided",
+    "stat2": "120+ career paths",
+    "stat3": "4 languages"
+  },
+  "features": {
+    "title": "Everything you need to choose with confidence",
+    "subtitle": "Built for Gujarat students, parents, and schools",
+    "items": {
+      "ai": { "title": "AI Recommendation", "desc": "Personalized stream and career suggestions powered by AI." },
+      "quiz": { "title": "Smart Quiz", "desc": "30 questions across interests, aptitude, and personality." },
+      "report": { "title": "PDF Report", "desc": "Beautiful downloadable report in your language." },
+      "parent": { "title": "Parent Counseling", "desc": "Clear guidance for parents — no jargon." },
+      "lang": { "title": "4 Languages", "desc": "English, Hindi, Gujarati, Hinglish." },
+      "free": { "title": "100% Free for Students", "desc": "Schools can upgrade for analytics and white-label." }
+    }
+  },
+  "streams": {
+    "title": "Five paths after 10th",
+    "subtitle": "We help you discover the one that fits you best",
+    "science": { "name": "Science (11-12)", "desc": "For curious minds who love how things work — Engineering, Medicine, Research." },
+    "commerce": { "name": "Commerce (11-12)", "desc": "For organised thinkers — CA, Banking, Finance, Business, Economics." },
+    "arts": { "name": "Arts / Humanities (11-12)", "desc": "For creative & expressive students — Law, Design, Civil Services, Media." },
+    "diploma": { "name": "Diploma Engineering (3 yr)", "desc": "Skip 11-12. Become a Junior Engineer in 3 years and start earning early." },
+    "iti": { "name": "ITI / Skill (1-2 yr)", "desc": "Hands-on trades — Electrician, Mechanic, EV technician, Welder." }
+  },
+  "testimonials": {
+    "title": "Loved by students and parents"
+  },
+  "faq": {
+    "title": "Frequently asked questions",
+    "items": [
+      { "q": "Is this free for students?", "a": "Yes — the quiz, AI recommendation, and PDF report are completely free for individual students." },
+      { "q": "How accurate is the AI?", "a": "It combines a validated psychometric quiz with an AI counselor trained on Indian education pathways. Use it as guidance, not a verdict." },
+      { "q": "Will my child get pushed away from Diploma/ITI?", "a": "Never. We treat all five paths equally. Diploma and ITI are excellent choices for the right student." },
+      { "q": "Can my school use this?", "a": "Yes — we offer school plans with bulk onboarding, analytics, and white-label branding." }
+    ]
+  },
+  "footer": { "tag": "Helping every student find their path.", "rights": "All rights reserved." },
+  "quiz": {
+    "title": "Career Discovery Quiz",
+    "intro": "Answer honestly — there are no right or wrong answers. Takes about 6 minutes.",
+    "selectLevel": "Which class are you in?",
+    "class10": "I just passed Class 10",
+    "class10Desc": "Choose between Science, Commerce, Arts, Diploma, ITI",
+    "class12": "I just passed Class 12",
+    "class12Desc": "Pick the best career track for your stream",
+    "selectStream": "Which stream did you study in 12th?",
+    "science": "Science",
+    "commerce": "Commerce",
+    "arts": "Arts / Humanities",
+    "start": "Start Quiz",
+    "next": "Next",
+    "back": "Back",
+    "submit": "See My Result",
+    "progress": "Question {current} of {total}",
+    "loading": "Our AI counselor is analysing your answers...",
+    "loadingSub": "Generating your personalised report"
+  },
+  "result": {
+    "title": "Your Result",
+    "best": "Recommended path",
+    "match": "Match",
+    "why": "Why this fits you",
+    "careers": "Top career options",
+    "skills": "Skills to learn",
+    "roadmap": "Your 5-year roadmap",
+    "downloadPdf": "Download PDF Report",
+    "retake": "Retake Quiz",
+    "parentBtn": "Open Parent Counseling",
+    "aptitude": "Aptitude Profile",
+    "confidence": "Confidence",
+    "noResult": "No result found. Please take the quiz first.",
+    "takeQuiz": "Take Quiz"
+  },
+  "parent": {
+    "title": "Parent Counseling",
+    "subtitle": "A simple guide for parents — in your language",
+    "strengths": "Your child's strengths",
+    "path": "Recommended path",
+    "growth": "Career growth",
+    "duration": "Study duration",
+    "salary": "Salary potential (entry → senior)",
+    "demand": "Industry demand",
+    "dos": "Do's for parents",
+    "donts": "Don'ts for parents",
+    "noResult": "Please ask your child to complete the quiz first."
+  },
+  "careers": {
+    "title": "Modern Careers",
+    "subtitle": "Traditional and 2026-ready careers across all five paths",
+    "salary": "Salary",
+    "demand": "Demand",
+    "skills": "Key skills"
+  },
+  "about": {
+    "title": "About Career Compass",
+    "p1": "Career Compass is built for Gujarat students standing at the most important crossroads of their life — what to do after 10th.",
+    "p2": "We combine validated psychometrics, AI counseling, and real Gujarati/Indian career pathways to help every student — and every parent — choose with confidence.",
+    "mission": "Our mission",
+    "missionText": "To make world-class career counseling free and accessible to every Class 10 student in India, in their own language."
+  },
+  "tip": {
+    "title": "Did this report help you?",
+    "optional": "100% optional — your report stays free, always",
+    "body": "Career Compass is built to be free for every student. If we helped you choose your future, consider buying us a cup of chai ☕. Every rupee keeps this free for someone else.",
+    "custom": "Custom amount",
+    "send": "Send tip",
+    "skip": "No thanks, maybe later",
+    "thanks": "Thank you so much! ❤️",
+    "thanksSub": "Your support keeps Career Compass free for every student in Gujarat."
+  },
+  "contact": {
+    "title": "Get in touch",
+    "subtitle": "For school partnerships, support, or feedback",
+    "name": "Your name",
+    "email": "Email",
+    "school": "School (optional)",
+    "message": "Message",
+    "send": "Send message",
+    "sent": "Thank you! We'll be in touch soon.",
+    "whatsapp": "WhatsApp us"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm -v)",
+      "Bash(cd \"/Users/gamermafia/Documents/Claude Code/School Project\" && mkdir -p 'app/[locale]/quiz' 'app/[locale]/result' 'app/[locale]/parent' 'app/[locale]/careers' 'app/[locale]/about' 'app/[locale]/contact' 'app/[locale]/admin' app/api/recommend app/api/quiz components/ui components lib messages public prisma styles)",
+      "Bash(npm install *)",
+      "Bash(curl -sS -o /dev/null -w \"HTTP %{http_code}\\\\n\" http://localhost:3000/en)",
+      "Read(//private/tmp/**)",
+      "Bash(/usr/bin/curl -sS -X POST http://localhost:3000/api/recommend -H \"Content-Type: application/json\" -d '{\"answers\":{\"1\":0,\"2\":0,\"3\":3,\"4\":1,\"5\":1,\"6\":1,\"7\":0,\"8\":3,\"9\":1,\"10\":0,\"11\":1,\"12\":0,\"13\":1,\"14\":0,\"15\":0},\"lang\":\"hinglish\"}')",
+      "Bash(pkill -f \"next dev\")",
+      "Bash(npm run *)",
+      "Bash(/usr/bin/curl -sS -X POST http://localhost:3000/api/recommend -H \"Content-Type: application/json\" -d '{\"level\":10,\"lang\":\"en\",\"answers\":{\"1\":0,\"2\":0,\"3\":2,\"4\":1,\"5\":1,\"6\":1,\"7\":0,\"8\":3,\"9\":1,\"10\":0,\"11\":1,\"12\":0,\"13\":1,\"14\":0,\"15\":0,\"16\":0,\"17\":0,\"18\":0,\"19\":0,\"20\":0,\"21\":1,\"22\":0,\"23\":2,\"24\":0}}')",
+      "Bash(/usr/bin/python3 -c \"import sys,json;d=json.load\\(sys.stdin\\);r=d['recommendation'];print\\('Best:',r['best'],'| Conf:',r['confidence']\\);print\\('Top:',r['topCareers'][:3]\\)\")",
+      "Bash(/usr/bin/curl -sS -X POST http://localhost:3000/api/recommend -H \"Content-Type: application/json\" -d '{\"level\":12,\"priorStream\":\"SCIENCE\",\"lang\":\"gu\",\"answers\":{\"1001\":2,\"1002\":2,\"1003\":0,\"1004\":0,\"1005\":0,\"1006\":0,\"1007\":2,\"1008\":2}}')",
+      "Bash(/usr/bin/python3 -c \"import sys,json;d=json.load\\(sys.stdin\\);r=d['recommendation'];print\\('Best:',r['best'],'->',r['bestName']\\);print\\('Why:',r['why'][:120]\\)\")",
+      "Bash(/usr/bin/curl -sS -X POST http://localhost:3000/api/recommend -H \"Content-Type: application/json\" -d '{\"level\":12,\"priorStream\":\"COMMERCE\",\"lang\":\"hinglish\",\"answers\":{\"2001\":0,\"2002\":0,\"2003\":0,\"2004\":2,\"2005\":2,\"2006\":1,\"2007\":1,\"2008\":1}}')",
+      "Bash(/usr/bin/curl -sS -X POST http://localhost:3000/api/recommend -H \"Content-Type: application/json\" -d '{\"level\":12,\"priorStream\":\"ARTS\",\"lang\":\"hi\",\"answers\":{\"3001\":0,\"3002\":2,\"3003\":0,\"3004\":0,\"3005\":1,\"3006\":3,\"3007\":1,\"3008\":0,\"3009\":0}}')",
+      "Bash(/usr/bin/curl -sS -o /dev/null -w \"HTTP %{http_code}\\\\n\" http://localhost:3000/en/parent)",
+      "Bash(gh auth *)",
+      "Bash(grep -q \"^\\\\.env\\\\.local$\\\\|^\\\\.env$\" .gitignore)",
+      "Bash(ls -la .env*)",
+      "Bash(git init *)",
+      "Bash(git add *)",
+      "Bash(git checkout *)"
+    ]
+  }
+}

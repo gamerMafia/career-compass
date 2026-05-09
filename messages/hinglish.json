@@ -1,0 +1,137 @@
+{
+  "nav": {
+    "home": "Home",
+    "quiz": "Quiz Do",
+    "careers": "Careers",
+    "parent": "Parents Ke Liye",
+    "about": "Hamare Baare Mein",
+    "contact": "Contact",
+    "start": "Free Quiz Shuru Karo"
+  },
+  "hero": {
+    "badge": "10th ke baad AI-powered career guidance",
+    "title": "10th ke baad apna sahi rasta chuno",
+    "subtitle": "Gujarat ke students ke liye easy AI guide — Science, Commerce, Arts, Diploma aur ITI mein se sahi choice.",
+    "cta": "Free Quiz Shuru Karo",
+    "secondary": "Careers Dekho",
+    "stat1": "8,000+ students ko guide kiya",
+    "stat2": "120+ career options",
+    "stat3": "4 bhasha"
+  },
+  "features": {
+    "title": "Confidence se choose karne ke liye sab kuch",
+    "subtitle": "Gujarat ke students, parents aur schools ke liye",
+    "items": {
+      "ai": { "title": "AI Recommendation", "desc": "AI se personalized stream aur career suggestions." },
+      "quiz": { "title": "Smart Quiz", "desc": "Interest, aptitude aur personality par 30 questions." },
+      "report": { "title": "PDF Report", "desc": "Aapki bhasha mein sundar downloadable report." },
+      "parent": { "title": "Parent Counseling", "desc": "Parents ke liye simple guidance — bina jargon ke." },
+      "lang": { "title": "4 Bhasha", "desc": "English, Hindi, Gujarati, Hinglish." },
+      "free": { "title": "Students ke liye Free", "desc": "Schools analytics ke liye upgrade kar sakte hain." }
+    }
+  },
+  "streams": {
+    "title": "10th ke baad paanch raste",
+    "subtitle": "Hum aapke liye sabse sahi rasta dhundhne mein madad karte hain",
+    "science": { "name": "Science (11-12)", "desc": "Curious students ke liye — Engineering, Medicine, Research." },
+    "commerce": { "name": "Commerce (11-12)", "desc": "Organised thinkers ke liye — CA, Banking, Finance." },
+    "arts": { "name": "Arts / Humanities (11-12)", "desc": "Creative students ke liye — Law, Design, Civil Services." },
+    "diploma": { "name": "Diploma Engineering (3 saal)", "desc": "11-12 chodo. 3 saal mein Junior Engineer bano." },
+    "iti": { "name": "ITI / Skill (1-2 saal)", "desc": "Hands-on kaam — Electrician, Mechanic, EV Technician." }
+  },
+  "testimonials": { "title": "Students aur parents ko pasand" },
+  "faq": {
+    "title": "Aksar puche jaane wale sawaal",
+    "items": [
+      { "q": "Kya yeh students ke liye free hai?", "a": "Haan — quiz, AI recommendation aur PDF report bilkul free hai." },
+      { "q": "AI kitna accurate hai?", "a": "Yeh validated psychometric quiz aur Indian education par trained AI ko combine karta hai." },
+      { "q": "Kya mere bachhe ko Diploma/ITI se door kiya jayega?", "a": "Kabhi nahi. Hum paanchon raste ko equal maante hain." },
+      { "q": "Kya meri school iska use kar sakti hai?", "a": "Haan — school plans available hain." }
+    ]
+  },
+  "footer": { "tag": "Har student ko sahi rasta dilane mein madad.", "rights": "Sabhi adhikar surakshit." },
+  "quiz": {
+    "title": "Career Discovery Quiz",
+    "intro": "Honestly answer karo — koi sahi ya galat jawaab nahi hai. Lagbhag 6 minute lagte hain.",
+    "selectLevel": "Aap kis class mein ho?",
+    "class10": "Maine abhi 10th pass ki hai",
+    "class10Desc": "Science, Commerce, Arts, Diploma, ITI mein se chuno",
+    "class12": "Maine abhi 12th pass ki hai",
+    "class12Desc": "Apni stream ke liye best career track chuno",
+    "selectStream": "12th mein aapne kaunsi stream padhi?",
+    "science": "Science",
+    "commerce": "Commerce",
+    "arts": "Arts / Humanities",
+    "start": "Quiz Shuru Karo",
+    "next": "Aage",
+    "back": "Pichhe",
+    "submit": "Mera Result Dekho",
+    "progress": "Sawaal {current} / {total}",
+    "loading": "Hamara AI counselor aapke jawaabon ka analysis kar raha hai...",
+    "loadingSub": "Aapki personalized report taiyaar ho rahi hai"
+  },
+  "result": {
+    "title": "Aapka Result",
+    "best": "Suggested rasta",
+    "match": "Match",
+    "why": "Yeh aapke liye kyun sahi hai",
+    "careers": "Top career options",
+    "skills": "Seekhne wale skills",
+    "roadmap": "Aapka 5 saal ka roadmap",
+    "downloadPdf": "PDF Report Download Karo",
+    "retake": "Quiz Phir Se Do",
+    "parentBtn": "Parent Counseling Kholo",
+    "aptitude": "Aptitude Profile",
+    "confidence": "Confidence",
+    "noResult": "Koi result nahi mila. Pehle quiz do.",
+    "takeQuiz": "Quiz Do"
+  },
+  "parent": {
+    "title": "Parent Counseling",
+    "subtitle": "Parents ke liye aapki bhasha mein simple guide",
+    "strengths": "Aapke bachhe ki taqat",
+    "path": "Suggested rasta",
+    "growth": "Career growth",
+    "duration": "Padhai ka samay",
+    "salary": "Salary potential (start → senior)",
+    "demand": "Industry demand",
+    "dos": "Parents ke liye karein",
+    "donts": "Parents ke liye na karein",
+    "noResult": "Pehle apne bachhe se quiz complete karwayein."
+  },
+  "careers": {
+    "title": "Modern Careers",
+    "subtitle": "Sabhi paanch raston mein traditional aur 2026-ready careers",
+    "salary": "Salary",
+    "demand": "Demand",
+    "skills": "Key skills"
+  },
+  "about": {
+    "title": "Career Compass Ke Baare Mein",
+    "p1": "Career Compass Gujarat ke un students ke liye banaya gaya hai jo 10th ke baad zindagi ke sabse important crossroad par khade hain.",
+    "p2": "Hum psychometrics, AI counseling aur real Indian career rastey ko combine karte hain.",
+    "mission": "Hamara Mission",
+    "missionText": "World-class career counseling har Class 10 student tak unki bhasha mein free pahunchana."
+  },
+  "tip": {
+    "title": "Kya is report se madad mili?",
+    "optional": "100% optional — aapki report hamesha free rahegi",
+    "body": "Career Compass har student ke liye free hai. Agar humne aapki madad ki, to humein ek chai pila dijiye ☕. Aapka har rupiya kisi aur student ke liye yeh free rakhta hai.",
+    "custom": "Apni amount",
+    "send": "Tip bhejo",
+    "skip": "Nahi shukriya, baad mein dekhunga",
+    "thanks": "Bahut bahut shukriya! ❤️",
+    "thanksSub": "Aapka support Gujarat ke har student ke liye Career Compass free rakhta hai."
+  },
+  "contact": {
+    "title": "Sampark Karein",
+    "subtitle": "School partnership, support ya feedback ke liye",
+    "name": "Aapka naam",
+    "email": "Email",
+    "school": "School (optional)",
+    "message": "Message",
+    "send": "Message Bhejo",
+    "sent": "Shukriya! Hum jaldi sampark karenge.",
+    "whatsapp": "WhatsApp Karo"
+  }
+}
