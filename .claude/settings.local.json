@@ -35,7 +35,13 @@
       "Bash(/usr/bin/curl -sSL https://api.counterapi.dev/v1/career-compass/reports/)",
       "Bash(/usr/bin/curl -sSL https://api.counterapi.dev/v1/career-compass/reports/up)",
       "Bash(/usr/bin/curl -sS \"http://localhost:3000/hinglish?bust=$\\(date +%s\\)\")",
-      "Bash(/usr/bin/grep -A1 \"gradient-text leading-tight\")"
+      "Bash(/usr/bin/grep -A1 \"gradient-text leading-tight\")",
+      "Bash(/usr/bin/python3 -c \"import sys,json;print\\('upstream now:',json.load\\(sys.stdin\\).get\\('count'\\)\\)\")",
+      "Bash(/usr/bin/curl -sS \"http://localhost:3000/api/count\")",
+      "Bash(/usr/bin/sed -i '' 's|incrementCount\\(\\).catch\\(\\(\\) => {}\\);|after\\(\\(\\) => incrementCount\\(\\).catch\\(\\(\\) => {}\\)\\);|g' app/api/recommend/route.ts)",
+      "Bash(/usr/bin/grep -n \"after\\\\|incrementCount\" app/api/recommend/route.ts)",
+      "Bash(/usr/bin/curl -sS http://localhost:3000/api/count)",
+      "Bash(/usr/bin/python3 -c \"import sys,json;print\\(json.load\\(sys.stdin\\).get\\('count'\\)\\)\")"
     ]
   }
 }

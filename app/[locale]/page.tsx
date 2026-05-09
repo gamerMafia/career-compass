@@ -3,15 +3,15 @@ import Link from 'next/link';
 import { ArrowRight, Sparkles, Brain, FileText, HeartHandshake, Globe, Gift, Beaker, Briefcase, Palette, Wrench, Cog, ChevronDown } from 'lucide-react';
 import type { Locale } from '@/i18n';
 import { getCount } from '@/lib/counter';
+import LiveCounter from '@/components/LiveCounter';
 
-export const revalidate = 60; // refresh the live counter every minute
+export const revalidate = 60; // ISR for SEO; <LiveCounter /> handles live updates client-side
 
 export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations();
-  const reportsGenerated = await getCount();
-  const formattedCount = new Intl.NumberFormat('en-IN').format(reportsGenerated);
+  const initialCount = await getCount();
 
   const featureIcons = [Brain, Sparkles, FileText, HeartHandshake, Globe, Gift];
   const featureKeys = ['ai', 'quiz', 'report', 'parent', 'lang', 'free'] as const;
@@ -65,7 +65,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           <div className="grid grid-cols-3 max-w-2xl mx-auto mt-12 gap-4 text-center">
             <div className="p-4 rounded-2xl glass relative overflow-hidden">
               <div className="text-2xl md:text-3xl font-extrabold gradient-text leading-tight">
-                {formattedCount}
+                <LiveCounter initial={initialCount} />
               </div>
               <div className="text-[11px] md:text-xs font-medium text-slate-600 mt-0.5 inline-flex items-center gap-1 justify-center">
                 <span className="relative flex h-2 w-2">

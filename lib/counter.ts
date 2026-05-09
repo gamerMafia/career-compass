@@ -11,16 +11,27 @@ const FALLBACK = 0;
 // Trailing slash matters — without it the API returns a 301 redirect.
 const BASE = `https://api.counterapi.dev/v1/${WORKSPACE}/${KEY}/`;
 
-export async function getCount(): Promise<number> {
+async function readRaw(noCache: boolean): Promise<number> {
   try {
-    const res = await fetch(BASE, { next: { revalidate: 60 } });
-    if (!res.ok) return BASELINE + FALLBACK;
+    const res = await fetch(BASE, noCache
+      ? { cache: 'no-store' }
+      : { next: { revalidate: 60 } });
+    if (!res.ok) return FALLBACK;
     const data = await res.json();
-    const real = typeof data.count === 'number' ? data.count : FALLBACK;
-    return BASELINE + real;
+    return typeof data.count === 'number' ? data.count : FALLBACK;
   } catch {
-    return BASELINE + FALLBACK;
+    return FALLBACK;
   }
+}
+
+/** Cached read (60s) — for SSR initial render. */
+export async function getCount(): Promise<number> {
+  return BASELINE + (await readRaw(false));
+}
+
+/** Always-fresh read — for the /api/count live endpoint. */
+export async function getCountLive(): Promise<number> {
+  return BASELINE + (await readRaw(true));
 }
 
 export async function incrementCount(): Promise<number> {
