@@ -43,7 +43,10 @@
       "Bash(/usr/bin/curl -sS http://localhost:3000/api/count)",
       "Bash(/usr/bin/python3 -c \"import sys,json;print\\(json.load\\(sys.stdin\\).get\\('count'\\)\\)\")",
       "Bash(/usr/bin/sed -i '' 's|after\\(\\(\\) => incrementCount\\(\\).catch\\(\\(\\) => {}\\)\\);|await incrementCount\\(\\);|g' app/api/recommend/route.ts)",
-      "Bash(/usr/bin/grep -n \"incrementCount\\\\|after\" app/api/recommend/route.ts)"
+      "Bash(/usr/bin/grep -n \"incrementCount\\\\|after\" app/api/recommend/route.ts)",
+      "Bash(/usr/bin/sed -i '' '/await incrementCount\\(\\);/d' app/api/recommend/route.ts)",
+      "Bash(rm -rf app/api/count lib/counter.ts components/LiveCounter.tsx)",
+      "Bash(/usr/bin/grep -n \"incrementCount\\\\|counter\\\\|LiveCounter\\\\|after\" app/api/recommend/route.ts app/'[locale]'/page.tsx)"
     ]
   }
 }

@@ -2,16 +2,11 @@ import { setRequestLocale, getTranslations } from 'next-intl/server';
 import Link from 'next/link';
 import { ArrowRight, Sparkles, Brain, FileText, HeartHandshake, Globe, Gift, Beaker, Briefcase, Palette, Wrench, Cog, ChevronDown } from 'lucide-react';
 import type { Locale } from '@/i18n';
-import { getCount } from '@/lib/counter';
-import LiveCounter from '@/components/LiveCounter';
-
-export const revalidate = 60; // ISR for SEO; <LiveCounter /> handles live updates client-side
 
 export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations();
-  const initialCount = await getCount();
 
   const featureIcons = [Brain, Sparkles, FileText, HeartHandshake, Globe, Gift];
   const featureKeys = ['ai', 'quiz', 'report', 'parent', 'lang', 'free'] as const;
@@ -63,17 +58,9 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             </Link>
           </div>
           <div className="grid grid-cols-3 max-w-2xl mx-auto mt-12 gap-4 text-center">
-            <div className="p-4 rounded-2xl glass relative overflow-hidden">
-              <div className="text-2xl md:text-3xl font-extrabold gradient-text leading-tight">
-                <LiveCounter initial={initialCount} />
-              </div>
-              <div className="text-[11px] md:text-xs font-medium text-slate-600 mt-0.5 inline-flex items-center gap-1 justify-center">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
-                </span>
-                {t('hero.statReports')}
-              </div>
+            <div className="p-4 rounded-2xl glass">
+              <div className="text-2xl md:text-3xl font-extrabold gradient-text leading-tight">8,000+</div>
+              <div className="text-[11px] md:text-xs font-medium text-slate-600 mt-0.5">{t('hero.stat1')}</div>
             </div>
             <div className="p-4 rounded-2xl glass">
               <div className="text-2xl md:text-3xl font-extrabold gradient-text leading-tight">120+</div>

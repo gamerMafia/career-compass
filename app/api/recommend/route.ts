@@ -4,7 +4,6 @@ import { ruleBasedRecommendation, buildAIPrompt, type Recommendation } from '@/l
 import { scoreAnswers12, recommend12, TRACK_INFO, type Stream12, type Recommendation12 } from '@/lib/class12';
 import type { Lang } from '@/lib/quizData';
 import { streamMeta } from '@/lib/careers';
-import { incrementCount } from '@/lib/counter';
 
 export const runtime = 'nodejs';
 
@@ -58,7 +57,6 @@ export async function POST(req: Request) {
         }
       }
 
-      await incrementCount();
       return NextResponse.json({ score: score12, recommendation: rec12, level: 12, priorStream });
     }
 
@@ -104,7 +102,6 @@ export async function POST(req: Request) {
       }
     }
 
-    await incrementCount();
     return NextResponse.json({ score, recommendation: rec, level: 10 });
   } catch (e) {
     console.error(e);
