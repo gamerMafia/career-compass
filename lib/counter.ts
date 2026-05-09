@@ -3,7 +3,10 @@
 
 const WORKSPACE = process.env.COUNTER_WORKSPACE ?? 'career-compass';
 const KEY = process.env.COUNTER_KEY ?? 'reports';
-const FALLBACK = 1; // shown only if API is unreachable AND we have no real number
+// Baseline shown to users so the counter starts believable, not from 0.
+// Real count keeps growing on top of this number.
+const BASELINE = parseInt(process.env.COUNTER_BASELINE ?? '8000', 10);
+const FALLBACK = 0;
 
 // Trailing slash matters — without it the API returns a 301 redirect.
 const BASE = `https://api.counterapi.dev/v1/${WORKSPACE}/${KEY}/`;
@@ -11,11 +14,12 @@ const BASE = `https://api.counterapi.dev/v1/${WORKSPACE}/${KEY}/`;
 export async function getCount(): Promise<number> {
   try {
     const res = await fetch(BASE, { next: { revalidate: 60 } });
-    if (!res.ok) return FALLBACK;
+    if (!res.ok) return BASELINE + FALLBACK;
     const data = await res.json();
-    return typeof data.count === 'number' ? data.count : FALLBACK;
+    const real = typeof data.count === 'number' ? data.count : FALLBACK;
+    return BASELINE + real;
   } catch {
-    return FALLBACK;
+    return BASELINE + FALLBACK;
   }
 }
 

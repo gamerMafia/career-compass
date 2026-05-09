@@ -5,6 +5,8 @@ export default createMiddleware({
   locales,
   defaultLocale,
   localePrefix: 'always',
+  // Don't auto-pick from browser Accept-Language — always default to Hinglish.
+  localeDetection: false,
 });
 
 export const config = {
