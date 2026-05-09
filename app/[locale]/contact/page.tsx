@@ -33,8 +33,8 @@ export default function ContactPage() {
           </form>
         </div>
         <div className="space-y-4">
-          <a href="mailto:nik.tejani008@gmail.com" className="flex items-center gap-3 p-5 rounded-2xl bg-white border border-slate-200 hover:border-brand-300">
-            <Mail className="text-brand-600" /><span>nik.tejani008@gmail.com</span>
+          <a href="mailto:nik.tejani007@gmail.com" className="flex items-center gap-3 p-5 rounded-2xl bg-white border border-slate-200 hover:border-brand-300">
+            <Mail className="text-brand-600" /><span>nik.tejani007@gmail.com</span>
           </a>
         </div>
       </div>
