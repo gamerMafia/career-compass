@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
-import { Mail, MessageCircle, Send, CheckCircle2 } from 'lucide-react';
+import { Mail, Send, CheckCircle2 } from 'lucide-react';
 
 export default function ContactPage() {
   const t = useTranslations('contact');
@@ -33,11 +33,8 @@ export default function ContactPage() {
           </form>
         </div>
         <div className="space-y-4">
-          <a href="mailto:hello@careercompass.in" className="flex items-center gap-3 p-5 rounded-2xl bg-white border border-slate-200 hover:border-brand-300">
-            <Mail className="text-brand-600" /><span>hello@careercompass.in</span>
-          </a>
-          <a href="https://wa.me/919999999999" target="_blank" rel="noreferrer" className="flex items-center gap-3 p-5 rounded-2xl bg-emerald-50 border border-emerald-200 hover:border-emerald-400">
-            <MessageCircle className="text-emerald-600" /><span>{t('whatsapp')}</span>
+          <a href="mailto:nik.tejani008@gmail.com" className="flex items-center gap-3 p-5 rounded-2xl bg-white border border-slate-200 hover:border-brand-300">
+            <Mail className="text-brand-600" /><span>nik.tejani008@gmail.com</span>
           </a>
         </div>
       </div>
